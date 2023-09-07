@@ -1,19 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MaxMind.GeoIP2.Model;
+using Actividad.API.Controllers;
 
-namespace Market.API.Data
+namespace Actividad.API.Data
 {
     public class DataContext : DbContext
     {
+
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }
-        public DbSet<Country> Countries { get; set; }
+        public DbSet<ProjectController> Projects { get; set; }
+        public object Project { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Country>().HasIndex(c => c.Name).IsUnique();
         }
     }
 }
