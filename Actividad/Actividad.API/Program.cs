@@ -10,8 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 //Inyeccion de dependencias SQL 
-builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("DefaultConnetion"));
+builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=DefaultConnetion"));
 
 var app = builder.Build();
 
